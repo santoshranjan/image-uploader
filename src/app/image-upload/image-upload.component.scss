@@ -4,6 +4,11 @@
 }
 
 .imageUploadModal{
+    .modal-header {
+        h6 {
+            cursor: pointer;
+        }
+    }
     .imageUploadArea {
         height: 350px;
         text-align: center;
