@@ -12,7 +12,7 @@ export class ImageUploadComponent implements OnInit {
 
   imageName = "WelcomeAngularImageUploadFile.jpg";
   imageChangedEvent: any = '';
-  croppedImage: any = '';
+  uploadImage: any = '';
   canvasRotation = 0;
   rotation = 0;
   scale = 1;
@@ -27,11 +27,11 @@ export class ImageUploadComponent implements OnInit {
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.fileName = event.target.files[0].name;
-    this.croppedImage = '';
+    this.uploadImage = '';
   }
 
   imageCropped(event: any) {
-    this.croppedImage = event.base64;
+    this.uploadImage = event.base64;
   }
 
   previewImg() {
@@ -39,7 +39,7 @@ export class ImageUploadComponent implements OnInit {
   }
 
   cancelImage() {
-    this.croppedImage = ''
+    this.uploadImage = ''
   }
 
   imageLoaded() {

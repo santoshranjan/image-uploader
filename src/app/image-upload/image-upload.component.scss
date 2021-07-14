@@ -1,119 +1,112 @@
 .modalBtn {
-    margin-top: 40%;
-    margin-bottom: 20%;
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
+.viewSavedImage {
+  margin-top: 2%;
+  padding: 2%;
+  img {
+    width: 500px;
+    height: 100%;
+  }
 }
 
-.imageUploadModal{
-    .modal-header {
-        h6 {
-            cursor: pointer;
-        }
+.imageUploadModal {
+  .modal-header {
+    h6 {
+      cursor: pointer;
     }
-    .imageUploadArea {
-        height: 350px;
-        text-align: center;
-        border: 2px dashed rgb(241, 242, 245);
-        background-color: rgb(250, 250, 255);
-    
-        .uploadIcon {
-          display: flex;
-          position: absolute;
-          top: 45%;
-          left: 25%;
-          align-items: center;
-    
-          label {
-            margin-left: 10px;
-            margin-right: 5px;
-            color: rgb(0, 140, 251);
-          }
-    
-          img {
-            padding: 10px;
-            background-color: rgb(226, 241, 254);
-            border-radius: 50%;
-          }
-        }
-    
-        input {
-          width: 100%;
-          height: 100%;
-          opacity: 0;
-          z-index: 2;
-        }
-    
-        image-cropper {
-          height: 50vh;
-        }
+  }
+  .imageUploadArea {
+    height: 350px;
+    text-align: center;
+    border: 2px dashed rgb(241, 242, 245);
+    background-color: rgb(250, 250, 255);
+
+    .uploadAreaImage {
+      display: flex;
+      position: absolute;
+      top: 45%;
+      left: 25%;
+      align-items: center;
+
+      label {
+        margin-left: 10px;
+        margin-right: 5px;
+        color: rgb(0, 140, 251);
+      }
+
+      img {
+        padding: 10px;
+        background-color: rgb(226, 241, 254);
+        border-radius: 50%;
+      }
     }
-    
-    
+
+    input {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    image-cropper {
+      height: 50vh;
+    }
+  }
+
+  .previewIcon {
+    display: flex;
+    align-items: center;
+    img {
+      background-color: rgb(226, 241, 254);
+      border-radius: 50%;
+      width: 10;
+      height: 10;
+    }
+  }
+
+  .modal-dialog {
+    max-width: 750px; /* New width for default modal */
+  }
+
+  .modal-footer {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+
     .previewIcon {
-        display: flex;
-        align-items: center;
-        img {
-          background-color: rgb(226, 241, 254);
-          border-radius: 50%;
-          width: 10;
-          height: 10;
-        }
-    }   
-    
-    .modal-dialog {
-        max-width: 750px; /* New width for default modal */
+      display: flex;
+      margin-left: 10px;
+      align-items: left;
+      img {
+        background-color: rgb(226, 241, 254);
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+      }
     }
-    
-    .modal-footer {
-        margin: 10px 0;
-        display: flex;
-        justify-content: space-between;
-    
-        .previewIcon {
-          display: flex;
-          margin-left:10px;
-          align-items: left;
-          img {
-            background-color: rgb(226, 241, 254);
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-          }
-        }
-    
-        .buttonStyle {
-          .cancelButton {
-            background-color: unset;
-            color: #0d6efd;
-            cursor: pointer;
-            font-size: 13px;
-            border-style: none;
-            margin-right: 5px;
-          }
-          .saveButton {
-            margin-right: 10px;
-          }
-        }
+
+    .buttonStyle {
+      .cancelButton {
+        background-color: unset;
+        color: #0d6efd;
+        cursor: pointer;
+        font-size: 13px;
+        border-style: none;
+        margin-right: 5px;
       }
-    
-      .modal-header {
-          h6 {
-            margin-left: 20px;
-            margin-top: 10px;
-            color: blue;
-          }
+      .saveButton {
+        margin-right: 10px;
       }
-    
-      .viewSavedImage {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin-top: 30%;
-        padding: 2%;
-        p{
-            font-weight: 500;
-            padding: 5px;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
+    }
+  }
+
+  .modal-header {
+    h6 {
+      margin-left: 20px;
+      margin-top: 10px;
+      color: blue;
+    }
+  }
 }

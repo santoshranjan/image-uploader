@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { EllipsisPipe } from './pipe/EllipsisPipe.component';
+import { TruncateEllipsisPipe } from './pipe/TruncateEllipsisPipe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ImageUploadComponent,
-    EllipsisPipe
+    TruncateEllipsisPipe
   ],
   imports: [
     BrowserModule,

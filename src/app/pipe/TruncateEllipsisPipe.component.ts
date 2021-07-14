@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'ellipsis'
+  name: 'truncateEllipsis'
 })
-export class EllipsisPipe implements PipeTransform {
+export class TruncateEllipsisPipe implements PipeTransform {
   transform(value: string): any {
     const maxLength = 15;
     let res = value;
