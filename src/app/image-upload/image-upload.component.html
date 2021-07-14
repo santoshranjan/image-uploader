@@ -1,0 +1,56 @@
+<!-- Button trigger modal -->
+<div class="modalBtn text-center">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="fileChangeEvent(false)" >
+        Upload
+    </button>
+</div>
+
+
+<div class="viewSavedImage text-center" *ngIf="imageChangedEvent && isFileSaved">
+    <img [src]="croppedImage" alt="Uploaded Image">
+    <p>{{fileName | ellipsis }}</p>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade imageUploadModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Organisation Image</h5>
+                <h6 *ngIf="croppedImage" (click)="fileChangeEvent(false)">Reload Image</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="imageUploadArea" *ngIf="!imageChangedEvent">
+                    <input type="file" (change)="fileChangeEvent($event)" />
+                    <div class="uploadIcon">
+                        <img src="../assets/upload.svg" /><label>Upload Image</label><span>Or Just drag and drop image</span>
+                    </div>
+                </div>
+                <div *ngIf="imageChangedEvent">
+                    <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                        [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="4 / 3"
+                        [resizeToWidth]="256" [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false"
+                        [canvasRotation]="canvasRotation" [transform]="transform" [alignImage]="'left'"
+                        [style.display]="showCropper ? null : 'none'" format="png" (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()"></image-cropper>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div *ngIf="!imageChangedEvent"></div>
+                <div class="previewIcon" *ngIf="imageChangedEvent">
+                    <img [src]="croppedImage" [style.border]="croppedImage ? '1px solid black' : 'none'" />
+                </div>
+                <div class="buttonStyle">
+                    <button type="button" class="cancelButton" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary saveButton" data-bs-dismiss="modal"
+                        (click)="fileSaveChanges()">Save change</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
