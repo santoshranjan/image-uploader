@@ -8,7 +8,11 @@
 
 <div class="viewSavedImage text-center" *ngIf="imageChangedEvent && isFileSaved">
     <img [src]="uploadImage" alt="Uploaded Image">
-    <h5>{{fileName | truncateEllipsis }}</h5>
+    <div class="filenamePreview">
+        <span>{{fileName.slice(0,-7)}}</span>
+        <span>{{fileName | truncateEllipsis }}</span>
+    </div>
+    <!-- <h5><span>{{fileName}}</span>{{fileName | truncateEllipsis }}</h5> -->
 </div>
 
 
