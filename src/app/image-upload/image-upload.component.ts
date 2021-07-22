@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ImageCroppedEvent, LoadedImage, ImageTransform } from 'ngx-image-cropper';
+import { ImageTransform } from 'ngx-image-cropper';
 
 @Component({
   selector: 'image-upload',
@@ -10,7 +10,7 @@ export class ImageUploadComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  imageName = "WelcomeAngularImageUploadFile.jpg";
+  galleryList: any = [];
   imageChangedEvent: any = '';
   uploadImage: any = '';
   canvasRotation = 0;
@@ -21,13 +21,22 @@ export class ImageUploadComponent implements OnInit {
   transform: ImageTransform = {};
   disable = false;
   isCancel = false;
-  fileName:any = '';
+  fileName: any = '';
   isFileSaved = false;
+  preEllipseName = '';
+  postEllipseName = '';
+
 
   fileChangeEvent(event: any): void {
     this.imageChangedEvent = event;
     this.fileName = event.target.files[0].name;
-    this.uploadImage = '';
+    this.ellipseImageName(this.fileName);
+    console.log(this.imageChangedEvent);
+  }
+
+  ellipseImageName(filename: any) {
+    this.preEllipseName = filename.slice(0, -7);
+    this.postEllipseName = filename.substr(filename.length - 7, filename.length);
   }
 
   imageCropped(event: any) {
@@ -48,5 +57,11 @@ export class ImageUploadComponent implements OnInit {
 
   fileSaveChanges() {
     this.isFileSaved = true;
+    this.galleryList.push({
+      uploadedImage: this.uploadImage,
+      preEllipseName: this.preEllipseName,
+      postEllipseName: this.postEllipseName
+    });
+    console.log(this.galleryList);
   }
 }

@@ -1,24 +1,27 @@
 <!-- Button trigger modal -->
 <div class="modalBtn text-center">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="fileChangeEvent(false)" >
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="fileChangeEvent(false)">
         Upload
     </button>
 </div>
 
-
-<div class="viewSavedImage text-center" *ngIf="imageChangedEvent && isFileSaved">
-    <img [src]="uploadImage" alt="Uploaded Image">
-    <div class="filenamePreview">
-        <span>{{fileName.slice(0,-7)}}</span>
-        <span>{{fileName | truncateEllipsis }}</span>
+<div *ngFor="let image of galleryList">
+    <div class="viewSavedImage text-center" *ngIf="imageChangedEvent && isFileSaved">
+        <img [src]="image.uploadedImage" alt="Uploaded Image">
+        <br />
+        <div class="filenamePreview">
+            <span>{{image.preEllipseName}}</span>
+            <span>{{image.postEllipseName }}</span>
+        </div>
     </div>
-    <!-- <h5><span>{{fileName}}</span>{{fileName | truncateEllipsis }}</h5> -->
 </div>
 
 
 
 <!-- Modal -->
-<div class="modal fade imageUploadModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade imageUploadModal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -30,7 +33,8 @@
                 <div class="imageUploadArea" *ngIf="!imageChangedEvent">
                     <input type="file" (change)="fileChangeEvent($event)" />
                     <div class="uploadAreaImage">
-                        <img src="../assets/upload.svg" /><label>Upload Image</label><span>Or Just drag and drop image</span>
+                        <img src="../assets/upload.svg" /><label>Upload Image</label><span>Or Just drag and drop
+                            image</span>
                     </div>
                 </div>
                 <div *ngIf="imageChangedEvent">
@@ -39,7 +43,8 @@
                         [resizeToWidth]="256" [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false"
                         [canvasRotation]="canvasRotation" [transform]="transform" [alignImage]="'left'"
                         [style.display]="showCropper ? null : 'none'" format="png" (imageCropped)="imageCropped($event)"
-                        (imageLoaded)="imageLoaded()"></image-cropper>
+                        (imageLoaded)="imageLoaded()">
+                    </image-cropper>
                 </div>
             </div>
             <div class="modal-footer">
